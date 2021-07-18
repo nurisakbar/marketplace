@@ -7,6 +7,8 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\UserRepository;
 use App\Models\User;
 use App\Validators\UserValidator;
+use App\Events\UserRegisterEvent;
+use Event;
 
 /**
  * Class UserRepositoryEloquent.
@@ -33,5 +35,13 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     public function boot()
     {
         $this->pushCriteria(app(RequestCriteria::class));
+    }
+
+
+    public function create($data)
+    {
+        $user = User::create($data);
+        event(new UserRegisterEvent($user));
+        return $user;
     }
 }

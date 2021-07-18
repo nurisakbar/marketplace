@@ -73,7 +73,7 @@ $app->configure('app');
 */
 
 $app->middleware([
-    Nord\Lumen\Cors\CorsMiddleware::class,
+    // Nord\Lumen\Cors\CorsMiddleware::class,
 ]);
 
 $app->routeMiddleware([
@@ -93,12 +93,12 @@ $app->routeMiddleware([
 
 // $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
-// $app->register(App\Providers\EventServiceProvider::class);
+$app->register(App\Providers\EventServiceProvider::class);
 $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
 $app->register(\Anik\Form\FormRequestServiceProvider::class);
 $app->register(Prettus\Repository\Providers\LumenRepositoryServiceProvider::class);
-$app->register(Nord\Lumen\Cors\CorsServiceProvider::class);
+// $app->register(Nord\Lumen\Cors\CorsServiceProvider::class);
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes

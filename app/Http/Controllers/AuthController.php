@@ -23,9 +23,7 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request)
     {
-        $data               = $request->all();
-        $data['password']   = Hash::make($request->password);
-        return new UserResource($this->userRepository->create($data));
+        return new UserResource($this->userRepository->create($request->all()));
     }
 
     /**
