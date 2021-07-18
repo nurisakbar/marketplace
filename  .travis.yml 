@@ -1,0 +1,19 @@
+language: php
+
+php:
+  - 8.0
+
+before_script:
+  - travis_retry composer self-update
+  - travis_retry composer install --prefer-source --no-interaction
+  - cp .env.example .env
+  - php artisan key:generate
+  # - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  # - chmod +x ./cc-test-reporter
+  # - ./cc-test-reporter before-build
+
+
+script:
+  - vendor/bin/phpcbf
+  - vendor/bin/phpcs
+  - vendor/bin/phpunit

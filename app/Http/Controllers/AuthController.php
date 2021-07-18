@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\LoginRequest;
 use App\Repositories\UserRepositoryEloquent;
 use App\Http\Resources\UserResource;
+// use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -20,7 +23,9 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request)
     {
-        return new UserResource($this->userRepository->create($request->all()));
+        $data               = $request->all();
+        $data['password']   = Hash::make($request->password);
+        return new UserResource($this->userRepository->create($data));
     }
 
     /**
@@ -28,7 +33,7 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function login()
+    public function login(LoginRequest $request)
     {
         $credentials = request(['email', 'password']);
 

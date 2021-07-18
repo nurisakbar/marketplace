@@ -12,7 +12,6 @@ class UserController extends Controller
 
     public function __construct(UserRepositoryEloquent $userRepository)
     {
-        // $this->middleware('auth:api', ['except' => ['login','register']]);
         $this->userRepository = $userRepository;
     }
     /**
@@ -22,7 +21,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return UserResource::collection($this->userRepository->all());
+        return $this->UserResource::collection($this->userRepository->all());
     }
 
     /**
