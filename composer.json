@@ -6,8 +6,10 @@
     "type": "project",
     "require": {
         "php": "^7.3|^8.0",
+        "anik/form-request": "^4.2",
         "flipbox/lumen-generator": "^8.2",
         "laravel/lumen-framework": "^8.0",
+        "prettus/l5-repository": "^2.7",
         "tymon/jwt-auth": "^1.0"
     },
     "require-dev": {
