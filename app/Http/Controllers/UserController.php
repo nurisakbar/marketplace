@@ -32,7 +32,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return response()->json(['message' =>'some message']);
     }
 
     /**
