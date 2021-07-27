@@ -25,7 +25,7 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
         if ($request->has('type')) {
-            $category = $this->categoryRepository->findWhere(['type'=>$request->type]);
+            $category = $this->categoryRepository->findWhere(['type' => $request->type]);
         } else {
             $category = $this->categoryRepository->all();
         }
