@@ -10,7 +10,7 @@ class UploadService
     {
         if ($request->hasFile($inputName)) {
             $file           = $request->file($inputName);
-            $file_name      = str_replace(' ', '', date('YmdHis').'_'.$file->getClientOriginalName());
+            $file_name      = str_replace(' ', '', date('YmdHis') . '_' . $file->getClientOriginalName());
             $file->move($folderName, $file_name);
             return $file_name;
         }
