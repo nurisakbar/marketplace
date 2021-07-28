@@ -13,12 +13,8 @@ class CategoryService
         $data['slug']   = Str::slug($request->name, '-');
 
         if ($request->hasFile('image')) {
-            $file           = $request->file('image');
-            $file_name      = str_replace(' ', '', $file->getClientOriginalName());
-            $file->move('category_image', $file_name);
-            $data['image'] = $file_name;
-            // $uploadService = new UploadService();
-            // $data['image'] = $uploadService->uploadToPublic($request, 'image', 'category_image');
+            $uploadService = new UploadService();
+            $data['image'] = $uploadService->uploadToPublic($request, 'image', 'category_image');
         }
 
         return $data;
