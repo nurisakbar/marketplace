@@ -1,7 +1,7 @@
 ## Markeplace API With Lumen
 [![Build Status](https://www.travis-ci.com/nurisakbar/marketplace.svg?branch=main)](https://www.travis-ci.com/nurisakbar/marketplace)
 
-## Cara Install 
+## Cara Install & Setup Codebase
 untuk melakukan instalasi project ini, silahkan ikuti langkah langkah berikut :
 1. git clone https://github.com/nurisakbar/marketplace.git
 2. cd marketplace
