@@ -41,7 +41,7 @@ class CategoryController extends Controller
     public function store(CreateCategoryRequest $request, CategoryService $categoryService)
     {
         $data   = $categoryService->create($request);
-        return $this->categoryRepository->create($data);
+        return new CategoryResource($this->categoryRepository->create($data));
     }
 
     /**
@@ -65,7 +65,7 @@ class CategoryController extends Controller
     public function update(UpdateCategoryRequest $request, $id, CategoryService $categoryService)
     {
         $data   = $categoryService->store($request);
-        return $this->categoryRepository->update($data, $id);
+        return new CategoryResource($this->categoryRepository->update($data, $id));
     }
 
     /**
