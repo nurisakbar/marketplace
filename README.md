@@ -1,7 +1,7 @@
-# Markeplace API With Lumen
+## Markeplace API With Lumen
 [![Build Status](https://www.travis-ci.com/nurisakbar/marketplace.svg?branch=main)](https://www.travis-ci.com/nurisakbar/marketplace)
 
-# Cara Install 
+## Cara Install 
 untuk melakukan instalasi project ini, silahkan ikuti langkah langkah berikut :
 1. git clone https://github.com/nurisakbar/marketplace.git
 2. cd marketplace
@@ -12,6 +12,6 @@ untuk melakukan instalasi project ini, silahkan ikuti langkah langkah berikut :
 7. php php artisan jwt:secret
 8. php artisan serve
 
-# Referensi
+## Referensi
 https://github.com/surahmans/Lumen-Design-Pattern<br>
 https://github.com/andersao/l5-repository
