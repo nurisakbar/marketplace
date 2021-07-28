@@ -40,7 +40,7 @@ class CategoryController extends Controller
      */
     public function store(CreateCategoryRequest $request, CategoryService $categoryService)
     {
-        $data   = $categoryService->store($request);
+        $data   = $categoryService->create($request);
         return $this->categoryRepository->create($data);
     }
 

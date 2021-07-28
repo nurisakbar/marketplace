@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 
 class CategoryService
 {
-    public function store(object $request)
+    public function create(object $request)
     {
         $data           = $request->all();
         $data['slug']   = Str::slug($request->name, '-');
