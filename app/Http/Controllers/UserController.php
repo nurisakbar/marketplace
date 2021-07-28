@@ -8,7 +8,7 @@ use App\Http\Resources\UserResource;
 
 class UserController extends Controller
 {
-    public $userRepository;
+    protected $userRepository;
 
     public function __construct(UserRepositoryEloquent $userRepository)
     {
