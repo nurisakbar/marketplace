@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Repositories\UserAddressRepositoryEloquent;
 use App\Http\Requests\CreateUserAddressRequest;
 use App\Services\UserAddressService;
+use App\Http\Requests\UpdateUserAddressRequest;
 use App\Http\Resources\UserAddressResource;
 
 class UserAddressController extends Controller
 {
-    protected $useraddresRepository;
+    protected $userAddresRepository;
 
-    public function __construct(UserAddressRepositoryEloquent $useraddresRepository)
+    public function __construct(UserAddressRepositoryEloquent $userAddresRepository)
     {
-        $this->useraddresRepository = $useraddresRepository;
+        $this->userAddresRepository = $userAddresRepository;
     }
     /**
      * Display a listing of the resource.
@@ -23,8 +23,8 @@ class UserAddressController extends Controller
      */
     public function index()
     {
-        $useraddres = $this->useraddresRepository->all();
-        return UserAddressResource::collection($useraddres);
+        $userAddres = $this->userAddresRepository->all();
+        return UserAddressResource::collection($userAddres);
     }
 
     /**
@@ -33,10 +33,9 @@ class UserAddressController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateUserAddressRequest $request, UserAddressService $useraddresService)
+    public function store(CreateUserAddressRequest $request, UserAddressService $userAddresService)
     {
-        $data   = $useraddresService->create($request);
-        return new UserAddressResource($this->useraddresRepository->create($data));
+        return new UserAddressResource($this->userAddresRepository->create($userAddresService->create($request)));
     }
 
     /**
@@ -47,7 +46,7 @@ class UserAddressController extends Controller
      */
     public function show($id)
     {
-        return new UserAddressResource($this->useraddresRepository->find($id));
+        return new UserAddressResource($this->userAddresRepository->find($id));
     }
 
     /**
@@ -57,10 +56,9 @@ class UserAddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserAddressRequest $request, $id)
     {
-        $data = $request->all();
-        return $this->useraddresRepository->update($data, $id);
+        return new UserAddressResource($this->userAddresRepository->update($request->all(), $id));
     }
 
     /**
@@ -71,6 +69,6 @@ class UserAddressController extends Controller
      */
     public function destroy($id)
     {
-        return $this->useraddresRepository->delete($id);
+        return $this->userAddresRepository->delete($id);
     }
 }

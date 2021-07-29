@@ -7,13 +7,7 @@ class UserAddressService
     public function create(object $request)
     {
         $data = $request->all();
-        return $data;
-    }
-
-
-    public function update(object $request)
-    {
-        $data = $request->all();
+        $data['user_id'] = \Auth::user()->id;
         return $data;
     }
 }
