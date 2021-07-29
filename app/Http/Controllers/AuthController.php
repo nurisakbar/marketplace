@@ -8,7 +8,6 @@ use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
 use App\Repositories\UserRepositoryEloquent;
 use App\Http\Resources\UserResource;
-// use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
