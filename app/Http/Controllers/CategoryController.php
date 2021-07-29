@@ -40,8 +40,7 @@ class CategoryController extends Controller
      */
     public function store(CreateCategoryRequest $request, CategoryService $categoryService)
     {
-        $data   = $categoryService->create($request);
-        return new CategoryResource($this->categoryRepository->create($data));
+        return new CategoryResource($this->categoryRepository->create($categoryService->create($request)));
     }
 
     /**
@@ -64,8 +63,7 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, $id, CategoryService $categoryService)
     {
-        $data   = $categoryService->store($request);
-        return new CategoryResource($this->categoryRepository->update($data, $id));
+        return new CategoryResource($this->categoryRepository->update($categoryService->create($request), $id));
     }
 
     /**
@@ -76,6 +74,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        return $this->categoryRepository->delete($id);
+        $delete = $this->categoryRepository->delete($id);
+        return response()->json(['message' => 'deleted']);
     }
 }

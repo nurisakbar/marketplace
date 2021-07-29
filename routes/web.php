@@ -19,11 +19,11 @@ $router->get('/', function () use ($router) {
 
 
 Route::group(['prefix' => 'auth'], function ($router) {
-    Route::post('register', 'AuthController@register');
-    Route::post('login', 'AuthController@login');
-    Route::post('logout', 'AuthController@logout');
-    Route::post('refresh', 'AuthController@refresh');
-    Route::post('me', 'AuthController@me');
+    Route::post('/register', 'AuthController@register');
+    Route::post('/login', 'AuthController@login');
+    Route::post('/logout', 'AuthController@logout');
+    Route::post('/refresh', 'AuthController@refresh');
+    Route::post('/me', 'AuthController@me');
 });
 
 Route::group(['middleware' => 'api'], function ($router) {
@@ -32,6 +32,11 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::put('/category/{id}', 'CategoryController@update');
     Route::delete('/category/{id}', 'CategoryController@destroy');
     Route::post('/category', 'CategoryController@store');
+    Route::get('/stores', 'StoreController@index');
+    Route::get('/stores/{id}', 'StoreController@show');
+    Route::put('/stores/{id}', 'StoreController@update');
+    Route::delete('/stores/{id}', 'StoreController@destroy');
+    Route::post('/stores', 'StoreController@create');
 });
 
 
