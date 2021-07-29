@@ -12,6 +12,10 @@ untuk melakukan instalasi project ini, silahkan ikuti langkah langkah berikut :
 7. php artisan jwt:secret
 8. php artisan serve
 
+## Migration & Seeder
+untuk menajalankan migrate sekaligus dengan data dummy, silahkan jalankan perintah:
+php artisan migrate --seed
+
 ## Referensi
 https://github.com/surahmans/Lumen-Design-Pattern<br>
 https://github.com/andersao/l5-repository
