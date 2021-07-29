@@ -1,5 +1,7 @@
 ## Markeplace API With Lumen
-[![Build Status](https://www.travis-ci.com/nurisakbar/marketplace.svg?branch=main)](https://www.travis-ci.com/nurisakbar/marketplace)
+[![Build Status](https://www.travis-ci.com/nurisakbar/marketplace.svg?branch=main)](https://www.travis-ci.com/nurisakbar/marketplace)<br>
+adalah codebase REST-API dari tugas peserta yang mengikuti training membangun REST API dengan lumen selama 2 minggu.
+studi kasus nya adalah REST API website marketplace untuk agrobisniss.
 
 ## Cara Install & Setup Codebase
 untuk melakukan instalasi project ini, silahkan ikuti langkah langkah berikut :
@@ -15,6 +17,16 @@ untuk melakukan instalasi project ini, silahkan ikuti langkah langkah berikut :
 ## Migration & Seeder
 untuk menajalankan migrate sekaligus dengan data dummy, silahkan jalankan perintah:<br>
 php artisan migrate --seed
+
+## System Requiretmen
+
+
+    PHP >= 7.3
+    OpenSSL PHP Extension
+    PDO PHP Extension
+    Mbstring PHP Extension
+
+
 
 ## Referensi
 https://github.com/surahmans/Lumen-Design-Pattern<br>
