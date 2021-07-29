@@ -64,7 +64,7 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, $id, CategoryService $categoryService)
     {
-        $data   = $categoryService->store($request);
+        $data   = $categoryService->update($request);
         return new CategoryResource($this->categoryRepository->update($data, $id));
     }
 
