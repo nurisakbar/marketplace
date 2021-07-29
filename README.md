@@ -13,7 +13,7 @@ untuk melakukan instalasi project ini, silahkan ikuti langkah langkah berikut :
 8. php artisan serve
 
 ## Migration & Seeder
-untuk menajalankan migrate sekaligus dengan data dummy, silahkan jalankan perintah:
+untuk menajalankan migrate sekaligus dengan data dummy, silahkan jalankan perintah:<br>
 php artisan migrate --seed
 
 ## Referensi
