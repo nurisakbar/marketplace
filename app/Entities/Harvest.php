@@ -21,5 +21,4 @@ class Harvest extends Model implements Transformable
      * @var array
      */
     protected $fillable = ['user_id', 'title', 'description', 'slug', 'category_id', 'images'];
-
 }

@@ -25,8 +25,6 @@ class HarvestRepositoryEloquent extends BaseRepository implements HarvestReposit
         return Harvest::class;
     }
 
-    
-
     /**
      * Boot up the repository, pushing criteria
      */
@@ -34,5 +32,4 @@ class HarvestRepositoryEloquent extends BaseRepository implements HarvestReposit
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
 }
