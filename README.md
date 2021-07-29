@@ -9,7 +9,7 @@ untuk melakukan instalasi project ini, silahkan ikuti langkah langkah berikut :
 4. cp .env.example .env
 5. sesuaikan konfigurasi database
 6. php artisan key:generate
-7. php php artisan jwt:secret
+7. php artisan jwt:secret
 8. php artisan serve
 
 ## Referensi
