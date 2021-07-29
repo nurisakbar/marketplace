@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use DB;
 
-class DatabaseSeeder extends Seeder
+class importWilayahIndonesiaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,8 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UserSeeder::class);
-        $this->call(CategorySeeder::class);
-        $this->call(importWilayahIndonesiaSeeder::class);
+        DB::unprepared(file_get_contents('database/seeders/wilayah_administratif_indonesia.sql'));
     }
 }
