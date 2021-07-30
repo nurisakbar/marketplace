@@ -15,8 +15,8 @@ class ArticleController extends Controller
 {
     protected $articleRepository;
     protected $fieldSearchable = [
-        'title'=>'like',
-       
+        'title' => 'like',
+
     ];
 
     public function __construct(ArticleRepositoryEloquent $articleRepository)
@@ -35,16 +35,12 @@ class ArticleController extends Controller
         // return ArticleResource::collection($article);
         if ($request->has('category_id')) {
             $article = $this->articleRepository->findWhere(['category_id' => $request->category_id]);
-        }
-        elseif($request->has('active')){
+        } elseif ($request->has('active')) {
             $article = $this->articleRepository->findWhere(['active' => $request->active]);
-
-        }
-       
-        else {
+        } else {
             $article = $this->articleRepository->all();
         }
- 
+
         return ArticleResource::collection($article);
     }
 
