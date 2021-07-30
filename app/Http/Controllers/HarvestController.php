@@ -25,6 +25,7 @@ class HarvestController extends Controller
     public function index(Request $request)
     {
         $harvests = $this->harvestRepository->all();
+
         return HarvestResource::collection($harvests);
     }
 
@@ -37,7 +38,9 @@ class HarvestController extends Controller
     public function store(CreateHarvestRequest $request, HarvestService $harvestService)
     {
         $data   = $harvestService->create($request);
-        return new HarvestResource($this->harvestRepository->create($data));
+        $harvest = $this->harvestRepository->create($data);
+
+        return new HarvestResource($harvest);
     }
 
     /**
@@ -61,7 +64,9 @@ class HarvestController extends Controller
     public function update(UpdateHarvestRequest $request, $id, HarvestService $harvestService)
     {
         $data   = $harvestService->create($request);
-        return new HarvestResource($this->harvestRepository->update($data, $id));
+        $harvest = $this->harvestRepository->update($data, $id);
+
+        return new HarvestResource($harvest);
     }
 
     /**

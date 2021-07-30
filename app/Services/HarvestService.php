@@ -28,6 +28,7 @@ class HarvestService
         $data               = $request->validated();
         $data['slug']       = Str::slug($request->name, '-');
         $data['user_id']    = Auth::id();
+
         return $data;
     }
 }
