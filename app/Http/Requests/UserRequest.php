@@ -28,11 +28,10 @@ class UserRequest extends FormRequest
             'email'     =>  'required|unique:users'
         ];
 
-        
         if ($this->method() == 'POST') {
             $rules['password'] = 'required';
         }
-        
+
         if ($this->method() == 'PUT') {
             $rules['email'] = $rules['email'] . ',email,' . $this->id;
         }

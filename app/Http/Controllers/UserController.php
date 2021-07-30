@@ -61,7 +61,7 @@ class UserController extends Controller
     public function update(UserRequest $request, $id)
     {
         // If user change the password
-        if($request->filled('password')) {
+        if ($request->filled('password')) {
             $request['password'] = Hash::make($request->password);
         }
 
