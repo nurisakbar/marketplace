@@ -7,6 +7,7 @@ use App\Http\Requests\CreateUserAddressRequest;
 use App\Services\UserAddressService;
 use App\Http\Requests\UpdateUserAddressRequest;
 use App\Http\Resources\UserAddressResource;
+use Auth;
 
 class UserAddressController extends Controller
 {
@@ -23,7 +24,7 @@ class UserAddressController extends Controller
      */
     public function index()
     {
-        $userAddres = $this->userAddressRepository->all();
+        $userAddres = $this->userAddressRepository->findWhere(['user_id' => Auth::user()->id]);
         return UserAddressResource::collection($userAddres);
     }
 

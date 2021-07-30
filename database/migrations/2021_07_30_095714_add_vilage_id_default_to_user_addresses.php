@@ -27,7 +27,8 @@ class AddVilageIdDefaultToUserAddresses extends Migration
     public function down()
     {
         Schema::table('user_addresses', function (Blueprint $table) {
-            //
+            $table->dropColumn('vilage_id');
+            $table->dropColumn('default');
         });
     }
 }
