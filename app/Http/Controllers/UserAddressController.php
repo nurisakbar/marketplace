@@ -10,11 +10,11 @@ use App\Http\Resources\UserAddressResource;
 
 class UserAddressController extends Controller
 {
-    protected $userAddresRepository;
+    protected $userAddressRepository;
 
-    public function __construct(UserAddressRepositoryEloquent $userAddresRepository)
+    public function __construct(UserAddressRepositoryEloquent $userAddressRepository)
     {
-        $this->userAddresRepository = $userAddresRepository;
+        $this->userAddressRepository = $userAddressRepository;
     }
     /**
      * Display a listing of the resource.
@@ -23,7 +23,7 @@ class UserAddressController extends Controller
      */
     public function index()
     {
-        $userAddres = $this->userAddresRepository->all();
+        $userAddres = $this->userAddressRepository->all();
         return UserAddressResource::collection($userAddres);
     }
 
@@ -35,7 +35,7 @@ class UserAddressController extends Controller
      */
     public function store(CreateUserAddressRequest $request, UserAddressService $userAddresService)
     {
-        return new UserAddressResource($this->userAddresRepository->create($userAddresService->create($request)));
+        return new UserAddressResource($this->userAddressRepository->create($userAddresService->create($request)));
     }
 
     /**
@@ -46,7 +46,7 @@ class UserAddressController extends Controller
      */
     public function show($id)
     {
-        return new UserAddressResource($this->userAddresRepository->find($id));
+        return new UserAddressResource($this->userAddressRepository->find($id));
     }
 
     /**
@@ -58,7 +58,7 @@ class UserAddressController extends Controller
      */
     public function update(UpdateUserAddressRequest $request, $id)
     {
-        return new UserAddressResource($this->userAddresRepository->update($request->all(), $id));
+        return new UserAddressResource($this->userAddressRepository->update($request->all(), $id));
     }
 
     /**
@@ -69,6 +69,6 @@ class UserAddressController extends Controller
      */
     public function destroy($id)
     {
-        return $this->userAddresRepository->delete($id);
+        return $this->userAddressRepository->delete($id);
     }
 }

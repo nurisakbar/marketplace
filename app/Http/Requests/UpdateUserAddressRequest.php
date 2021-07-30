@@ -26,7 +26,9 @@ class UpdateUserAddressRequest extends FormRequest
     {
         return [
             'lebel'    => 'required',
-            'name'     => 'required'
+            'name'     => 'required',
+            'address'  => 'required',
+            'phone'    => 'required'
         ];
     }
 }
