@@ -34,6 +34,14 @@ Route::group(['middleware' => 'api', 'prefix' => 'api'], function ($router) {
     Route::post('/category', 'CategoryController@store');
 });
 
+Route::group(['middleware' => 'api', 'prefix' => 'api'], function ($router) {
+    Route::get('/video', 'VideoController@index');
+    Route::get('/video/{id}', 'VideoController@show');
+    Route::put('/video/{id}', 'VideoController@update');
+    Route::delete('/video/{id}', 'VideoController@destroy');
+    Route::post('/video', 'VideoController@store');
+});
+
 
 Route::group(['middleware' => 'api','prefix' => 'api/user'], function ($router) {
     Route::get('/', 'UserController@index');
