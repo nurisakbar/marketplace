@@ -26,7 +26,7 @@ Route::group(['prefix' => 'auth'], function ($router) {
     Route::post('me', 'AuthController@me');
 });
 
-Route::group(['middleware' => 'api'], function ($router) {
+Route::group(['middleware' => 'api', 'prefix' => 'api'], function ($router) {
     Route::get('/category', 'CategoryController@index');
     Route::get('/category/{id}', 'CategoryController@show');
     Route::put('/category/{id}', 'CategoryController@update');
