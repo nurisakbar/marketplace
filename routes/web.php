@@ -35,7 +35,10 @@ Route::group(['middleware' => 'api'], function ($router) {
 });
 
 
-Route::group(['middleware' => 'api','prefix' => 'api/user'], function ($router) {
-    Route::get('/', 'UserController@index');
-    Route::get('/category', 'CategoryController@index');
+Route::group(['middleware' => 'api'], function ($router) {
+    Route::delete('/users/{id}', 'UserController@destroy');
+    Route::get('/users', 'UserController@index');
+    Route::get('/users/{id}', 'UserController@show');
+    Route::post('/users', 'UserController@store');
+    Route::put('/users/{id}', 'UserController@update');
 });
