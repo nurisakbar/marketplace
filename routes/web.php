@@ -34,6 +34,13 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::post('/category', 'CategoryController@store');
 });
 
+Route::group(['middleware' => 'api'], function ($router) {
+    Route::get('/harvest', 'HarvestController@index');
+    Route::get('/harvest/{id}', 'HarvestController@show');
+    Route::put('/harvest/{id}', 'HarvestController@update');
+    Route::delete('/harvest/{id}', 'HarvestController@destroy');
+    Route::post('/harvest', 'HarvestController@store');
+});
 
 Route::group(['middleware' => 'api','prefix' => 'api/user'], function ($router) {
     Route::get('/', 'UserController@index');
