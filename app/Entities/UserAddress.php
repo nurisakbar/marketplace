@@ -20,5 +20,5 @@ class UserAddress extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'lebel', 'address', 'phone', 'name'];
+    protected $fillable = ['user_id', 'lebel', 'address', 'phone', 'name', 'village_id', 'default'];
 }

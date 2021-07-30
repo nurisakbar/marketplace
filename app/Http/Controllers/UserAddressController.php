@@ -35,7 +35,9 @@ class UserAddressController extends Controller
      */
     public function store(CreateUserAddressRequest $request, UserAddressService $userAddresService)
     {
-        return new UserAddressResource($this->userAddressRepository->create($userAddresService->create($request)));
+        $data        = $userAddresService->create($request);
+        $userAddress = $this->userAddressRepository->create($data);
+        return new UserAddressResource($userAddress);
     }
 
     /**
@@ -58,7 +60,9 @@ class UserAddressController extends Controller
      */
     public function update(UpdateUserAddressRequest $request, $id)
     {
-        return new UserAddressResource($this->userAddressRepository->update($request->all(), $id));
+        $data        = $request->all();
+        $userAddress = $this->userAddressRepository->update($data, $id);
+        return new UserAddressResource($userAddress);
     }
 
     /**

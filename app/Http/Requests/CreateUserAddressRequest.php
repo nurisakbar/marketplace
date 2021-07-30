@@ -25,10 +25,12 @@ class CreateUserAddressRequest extends FormRequest
     protected function rules(): array
     {
         return [
-            'lebel'    => 'required',
-            'name'     => 'required',
-            'address'  => 'required',
-            'phone'    => 'required'
+            'lebel'      => 'required',
+            'name'       => 'required',
+            'address'    => 'required',
+            'phone'      => 'required',
+            'village_id' => 'required|exists:villages,id',
+            'default'    => 'required'
         ];
     }
 }
