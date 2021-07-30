@@ -8,10 +8,16 @@ use App\Http\Requests\CreateArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use App\Http\Resources\ArticleResource;
 use App\Services\ArticleService;
+use Prettus\Repository\Eloquent\BaseRepository;
+use Prettus\Repository\Criteria\RequestCriteria;
 
 class ArticleController extends Controller
 {
     protected $articleRepository;
+    protected $fieldSearchable = [
+        'title'=>'like',
+       
+    ];
 
     public function __construct(ArticleRepositoryEloquent $articleRepository)
     {
@@ -25,7 +31,20 @@ class ArticleController extends Controller
     public function index(Request $request)
     {
 
-        $article = $this->articleRepository->all();
+        // $article = $this->articleRepository->all();
+        // return ArticleResource::collection($article);
+        if ($request->has('category_id')) {
+            $article = $this->articleRepository->findWhere(['category_id' => $request->category_id]);
+        }
+        elseif($request->has('active')){
+            $article = $this->articleRepository->findWhere(['active' => $request->active]);
+
+        }
+       
+        else {
+            $article = $this->articleRepository->all();
+        }
+ 
         return ArticleResource::collection($article);
     }
 
