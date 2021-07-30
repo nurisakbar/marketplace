@@ -16,9 +16,10 @@ class ForumResource extends JsonResource
     {
         return [
             'id'                => $this->  id,
+            'user_id'           => $this->  user_id,
             'topic'             => $this->  topic,
             'description'       => $this->  description,
-            'images'            => url('/category_image/'.$this->images) 
+            'images'            => url('/category_image/' . $this->images)
         ];
     }
 }

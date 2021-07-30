@@ -25,7 +25,6 @@ class UpdateForumRequest extends FormRequest
     {
         return [
             'topic'             => 'required|max:10',
-            'user_id'           => 'required|numeric',
             'description'       => 'required',
             'category_id'       => 'required|numeric'
         ];

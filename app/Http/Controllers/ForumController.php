@@ -9,14 +9,13 @@ use App\Services\ForumService;
 use App\Http\Resources\ForumResource;
 use App\Http\Requests\UpdateForumRequest;
 
-
 class ForumController extends Controller
 {
     protected $forumRepository;
 
     public function __construct(ForumRepositoryEloquent $forumRepository)
     {
-       $this->forumRepository = $forumRepository; 
+        $this->forumRepository = $forumRepository;
     }
 
     /**
@@ -27,9 +26,9 @@ class ForumController extends Controller
     public function index(Request $request)
     {
         if ($request->has('topic')) {
-            $topic = $this->forumRepository->findWhere(['topic'=>$request->topic]);
-        }else {
-            $topic = $this->forumRepository->all();            
+            $topic = $this->forumRepository->findWhere(['topic' => $request->topic]);
+        } else {
+            $topic = $this->forumRepository->all();
         }
 
         return ForumResource::collection($topic);
@@ -41,7 +40,7 @@ class ForumController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateForumRequest $request, ForumService $forumService )
+    public function store(CreateForumRequest $request, ForumService $forumService)
     {
         $data = $forumService->create($request);
         return new ForumResource($this->forumRepository->create($data));
@@ -68,7 +67,7 @@ class ForumController extends Controller
     public function update(UpdateForumRequest $request, $id, ForumService $forumService)
     {
         $data = $forumService->update($request);
-        return new ForumResource($this->forumRepository->update($data,$id));
+        return new ForumResource($this->forumRepository->update($data, $id));
     }
 
     /**

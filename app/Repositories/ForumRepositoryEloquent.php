@@ -25,7 +25,7 @@ class ForumRepositoryEloquent extends BaseRepository implements ForumRepository
         return Forum::class;
     }
 
-    
+
 
     /**
      * Boot up the repository, pushing criteria
@@ -34,5 +34,4 @@ class ForumRepositoryEloquent extends BaseRepository implements ForumRepository
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
 }

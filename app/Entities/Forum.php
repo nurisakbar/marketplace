@@ -21,5 +21,4 @@ class Forum extends Model implements Transformable
      * @var array
      */
     protected $fillable = ['topic','slug','user_id','description','images','category_id'];
-
 }
