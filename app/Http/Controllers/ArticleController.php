@@ -29,8 +29,6 @@ class ArticleController extends Controller
         $conditions = [];
         if ($request->has('title')) {
             $conditions[] = ['title', 'LIKE', "%{$request->title}%"];
-        }
-        if ($conditions) {
             $article = $this->articleRepository->findWhere($conditions);
         } elseif ($request->has('category_id')) {
             $article = $this->articleRepository->findWhere(['category_id' => $request->category_id]);
