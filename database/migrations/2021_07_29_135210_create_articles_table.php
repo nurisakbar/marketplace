@@ -23,6 +23,7 @@ class CreateArticlesTable extends Migration
 			$table->text('image');
 			$table->integer('category_id');
 			$table->enum('active', array('y', 'n'));
+			$table->integer('user_id');
             $table->timestamps();
 		});
 	}

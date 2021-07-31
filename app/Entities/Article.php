@@ -20,5 +20,5 @@ class Article extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = ['title','slug','description','image','category_id','active'];
+    protected $fillable = ['title','slug','description','image','category_id','active','user_id'];
 }
