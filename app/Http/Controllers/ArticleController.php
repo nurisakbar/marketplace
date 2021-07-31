@@ -28,7 +28,7 @@ class ArticleController extends Controller
 
         $conditions = [];
         if ($request->has('title')) {
-            $conditions[] = ['title','LIKE', "%{$request->title}%"];
+            $conditions[] = ['title', 'LIKE', "%{$request->title}%"];
         }
         if ($conditions) {
             $article = $this->articleRepository->findWhere($conditions);
@@ -50,8 +50,10 @@ class ArticleController extends Controller
      */
     public function store(CreateArticleRequest $request, ArticleService $articleService)
     {
-        $data = $articleService->create($request);
-        return new ArticleResource($this->articleRepository->create($data));
+
+        $data    = $articleService->create($request);
+        $article = $this->articleRepository->create($data);
+        return new ArticleResource($article);
     }
 
     /**
@@ -62,7 +64,8 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        return new ArticleResource($this->articleRepository->find($id));
+        $article = $this->articleRepository->find($id);
+        return new ArticleResource($article);
     }
 
     /**
@@ -75,8 +78,10 @@ class ArticleController extends Controller
 
     public function update(UpdateArticleRequest $request, $id, ArticleService $articleService)
     {
-        $data = $articleService->create($request);
-        return new ArticleResource($this->articleRepository->update($data, $id));
+
+        $data    = $articleService->create($request);
+        $article = $this->articleRepository->update($data, $id);
+        return new ArticleResource($article);
     }
 
     /**

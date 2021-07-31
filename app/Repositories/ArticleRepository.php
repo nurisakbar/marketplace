@@ -15,23 +15,3 @@ interface ArticleRepository extends RepositoryInterface
 {
 
 }
-
-// class ArticleRepository extends BaseRepository {
-
-//     /**
-//      * @var array
-//      */
-//     protected $fieldSearchable = [
-//         'title',
-
-//     ];
-
-//     public function boot(){
-//         $this->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-
-//     }
-
-//     function model(){
-//        return "App\Article";
-//     }
-// }
