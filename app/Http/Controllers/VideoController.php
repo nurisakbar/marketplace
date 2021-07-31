@@ -26,21 +26,20 @@ class VideoController extends Controller
     {
         $conditions = [];
         if ($request->has('title')) {
-            $conditions[] = ['title','LIKE', "%{$request->title}%"];
+            $conditions[] = ['title', 'LIKE', "%{$request->title}%"];
         }
         if ($request->has('category')) {
-            $conditions[] = ['category_id','=', $request->category];
+            $conditions[] = ['category_id', '=', $request->category];
         }
         if ($request->has('active')) {
-            $conditions[] = ['active','=', $request->active];
+            $conditions[] = ['active', '=', $request->active];
         }
         if ($conditions) {
             $data = $this->videoRepository->findWhere($conditions);
         } else {
             $data = $this->videoRepository->all();
-
         }
-            return VideoResource::collection($data);
+        return VideoResource::collection($data);
     }
 
     /**

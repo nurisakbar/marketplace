@@ -32,5 +32,4 @@ class VideoRepositoryEloquent extends BaseRepository implements VideoRepository
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-
 }
