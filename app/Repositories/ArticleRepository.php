@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use Prettus\Repository\Contracts\RepositoryInterface;
-
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 
@@ -14,7 +13,7 @@ use Prettus\Repository\Criteria\RequestCriteria;
  */
 interface ArticleRepository extends RepositoryInterface
 {
-    
+
 }
 
 // class ArticleRepository extends BaseRepository {
@@ -24,12 +23,12 @@ interface ArticleRepository extends RepositoryInterface
 //      */
 //     protected $fieldSearchable = [
 //         'title',
-        
+
 //     ];
 
 //     public function boot(){
 //         $this->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        
+
 //     }
 
 //     function model(){

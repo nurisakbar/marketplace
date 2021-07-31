@@ -10,11 +10,10 @@ use App\Http\Resources\ArticleResource;
 use App\Services\ArticleService;
 use App\Repositories\ArticleRepository;
 
-
 class ArticleController extends Controller
 {
     protected $articleRepository;
-   
+
     public function __construct(ArticleRepositoryEloquent $articleRepository)
     {
         $this->articleRepository = $articleRepository;
@@ -27,21 +26,17 @@ class ArticleController extends Controller
     public function index(Request $request)
     {
 
-        $conditions =[];
-        if($request->has('title')){
+        $conditions = [];
+        if ($request->has('title')) {
             $conditions[] = ['title','LIKE', "%{$request->title}%"];
         }
-        if($conditions){
+        if ($conditions) {
             $article = $this->articleRepository->findWhere($conditions);
-        }
-
-        elseif ($request->has('category_id')) {
+        } elseif ($request->has('category_id')) {
             $article = $this->articleRepository->findWhere(['category_id' => $request->category_id]);
-        }
-        elseif ($request->has('active')) {
+        } elseif ($request->has('active')) {
             $article = $this->articleRepository->findWhere(['active' => $request->active]);
-        }
-        else{
+        } else {
             $article = $this->articleRepository->all();
         }
         return ArticleResource::collection($article);
