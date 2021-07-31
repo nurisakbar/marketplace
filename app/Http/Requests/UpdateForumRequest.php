@@ -24,7 +24,7 @@ class UpdateForumRequest extends FormRequest
     protected function rules(): array
     {
         return [
-            'topic'             => 'required|max:10',
+            'topic'             => 'required',
             'description'       => 'required',
             'category_id'       => 'required|numeric'
         ];
