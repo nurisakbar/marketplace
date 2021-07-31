@@ -25,7 +25,7 @@ class CourierServiceRepositoryEloquent extends BaseRepository implements Courier
         return CourierService::class;
     }
 
-    
+
 
     /**
      * Boot up the repository, pushing criteria
@@ -34,5 +34,4 @@ class CourierServiceRepositoryEloquent extends BaseRepository implements Courier
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
 }

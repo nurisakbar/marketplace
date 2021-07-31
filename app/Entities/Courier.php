@@ -21,5 +21,4 @@ class Courier extends Model implements Transformable
      * @var array
      */
     protected $fillable = [];
-
 }
