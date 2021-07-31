@@ -11,7 +11,7 @@
 <!-- exclude our migrations directory from the violation check-->
 <exclude-pattern>*/migrations/*</exclude-pattern>
 <exclude-pattern>app/http/controllers/Controller.php</exclude-pattern>
-<exclude-pattern>App/Models/User.php</exclude-pattern>
+
 <exclude-pattern>App/Console/Kernel.php</exclude-pattern>
 <!-- ignore warnings and display ERRORS only -->
 <arg  value="np"/>
