@@ -25,8 +25,6 @@ class VideoRepositoryEloquent extends BaseRepository implements VideoRepository
         return Video::class;
     }
 
-    
-
     /**
      * Boot up the repository, pushing criteria
      */
@@ -34,5 +32,5 @@ class VideoRepositoryEloquent extends BaseRepository implements VideoRepository
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
 }
