@@ -20,5 +20,5 @@ class Video extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = ['title', 'category_id', 'slug', 'file_name', 'active', 'description'];
+    protected $fillable = ['title', 'category_id', 'slug', 'file_name', 'active', 'description', 'user_id'];
 }

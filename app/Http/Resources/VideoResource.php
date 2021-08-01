@@ -21,7 +21,8 @@ class VideoResource extends JsonResource
             'category_id'   =>  $this->category_id,
             'active'        =>  $this->active,
             'slug'          => $this->slug,
-            'description' => $this->description,
+            'description'   => $this->description,
+            'user_id'       => $this->user_id,
         ];
     }
 }

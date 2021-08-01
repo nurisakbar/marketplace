@@ -22,10 +22,10 @@ class CreateVideosTable extends Migration
             $table->text('description')->nullable();
             $table->text('file_name')->nullable();
             $table->unsignedInteger('category_id');
+            $table->unsignedInteger('user_id');
             $table->enum('active',['y','n']);
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-
 		});
 	}
 

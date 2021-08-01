@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Illuminate\Support\Str;
 use App\Services\UploadService;
+use Illuminate\Support\Facades\Auth;
 
 class VideoService
 {
