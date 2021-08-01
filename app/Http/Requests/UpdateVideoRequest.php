@@ -24,10 +24,11 @@ class UpdateVideoRequest extends FormRequest
     protected function rules(): array
     {
         return [
-            'title'     =>  'required',
-            //'active' => 'required',
-            //'category_id'     =>  'required|exists:categories,id',
-            'file_name' => 'mimes:mp4,mov,ogg,qt',
+            'title'         =>  'required',
+            'active'        => 'required',
+            'description'   => 'required',
+            'category_id'   =>  'required|exists:categories,id',
+            'file_name'     => 'mimes:mp4,mov,ogg,qt',
         ];
     }
 }
