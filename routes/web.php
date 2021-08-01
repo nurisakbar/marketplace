@@ -39,3 +39,11 @@ Route::group(['middleware' => 'api','prefix' => 'api/user'], function ($router) 
     Route::get('/', 'UserController@index');
     Route::get('/category', 'CategoryController@index');
 });
+
+Route::group(['middleware' => 'api'], function ($router) {
+    Route::get('/video', 'VideoController@index');
+    Route::get('/video/{id}', 'VideoController@show');
+    Route::put('/video/{id}', 'VideoController@update');
+    Route::delete('/video/{id}', 'VideoController@destroy');
+    Route::post('/video', 'VideoController@store');
+});
