@@ -26,21 +26,12 @@ Route::group(['prefix' => 'auth'], function ($router) {
     Route::post('me', 'AuthController@me');
 });
 
-Route::group(['middleware' => 'api', 'prefix' => 'api'], function ($router) {
+Route::group(['middleware' => 'api'], function ($router) {
     Route::get('/category', 'CategoryController@index');
     Route::get('/category/{id}', 'CategoryController@show');
     Route::put('/category/{id}', 'CategoryController@update');
     Route::delete('/category/{id}', 'CategoryController@destroy');
     Route::post('/category', 'CategoryController@store');
-});
-
-Route::group(['middleware' => 'api', 'prefix' => 'api'], function ($router) {
-    Route::get('/video', 'VideoController@index');
-    Route::get('/video/tes', 'VideoController@tes');
-    Route::get('/video/{id}', 'VideoController@show');
-    Route::put('/video/{id}', 'VideoController@update');
-    Route::delete('/video/{id}', 'VideoController@destroy');
-    Route::post('/video', 'VideoController@store');
 });
 
 
