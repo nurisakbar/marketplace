@@ -52,7 +52,9 @@ class HarvestController extends Controller
      */
     public function show($id)
     {
-        return new HarvestResource($this->harvestRepository->find($id));
+        $harvest = $this->harvestRepository->find($id);
+
+        return new HarvestResource($harvest);
     }
 
     /**
