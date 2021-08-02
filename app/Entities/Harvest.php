@@ -32,7 +32,7 @@ class Harvest extends Model implements Transformable
 
     public function getImagesAttribute($value)
     {
-        if($value){
+        if ($value) {
             return unserialize($value);
         }
         return null;

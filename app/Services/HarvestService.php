@@ -20,7 +20,7 @@ class HarvestService
                 $uploadService = new UploadService();
                 $fileName = $uploadService->uploadToPublic($request, "images.$index", 'harvest_image');
 
-                if($fileName){
+                if ($fileName) {
                     $uploadedImages[] = $fileName;
                 }
             }
