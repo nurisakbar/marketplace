@@ -61,7 +61,6 @@ trait ApiResponseTrait
     protected function noContent(string $message)
     {
         return response()->json(['message' => $message,'content' => null], 204);
-        return response()->json(['message' => 'sas','content' => null], 204);
     }
 
     /**
