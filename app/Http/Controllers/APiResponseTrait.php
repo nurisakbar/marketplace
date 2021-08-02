@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ------------------------------------------
  * Json Response Trait
@@ -8,6 +9,7 @@
  * accompanied with proper status code
  *
  */
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
@@ -22,9 +24,9 @@ trait ApiResponseTrait
      * @return Illuminate\Http\JsonResponse
      */
 
-    protected function ok(object $data, string $message =null)
+    protected function ok(object $data, string $message = null)
     {
-        return response()->json(['message'=>$message,'data'=>$data], 200);
+        return response()->json(['message' => $message,'data' => $data], 200);
     }
 
     /**
@@ -36,7 +38,7 @@ trait ApiResponseTrait
     */
     protected function created($data, string $message = null)
     {
-        return response()->json(['data'=>$data,'message'=>$message], 201);
+        return response()->json(['data' => $data,'message' => $message], 201);
     }
 
     /**
@@ -48,7 +50,7 @@ trait ApiResponseTrait
      */
     protected function accepted($data, string $message = null)
     {
-        return response()->json(['data'=>$data,'message'=>$message], 202);
+        return response()->json(['data' => $data,'message' => $message], 202);
     }
 
     /**
@@ -58,8 +60,8 @@ trait ApiResponseTrait
      */
     protected function noContent(string $message)
     {
-        return response()->json(['message'=>$message,'content'=>null], 204);
-        return response()->json(['message' =>'sas','content'=>null], 204);
+        return response()->json(['message' => $message,'content' => null], 204);
+        return response()->json(['message' => 'sas','content' => null], 204);
     }
 
     /**
@@ -70,7 +72,7 @@ trait ApiResponseTrait
      * @param  string|null $key  parent key (Optional key)
      * @return Illuminate\Http\JsonResponse
      */
-    protected function badRequest($data, ?string $key = null) : JsonResponse
+    protected function badRequest($data, ?string $key = null): JsonResponse
     {
         return response()->json($this->body($data, $key), 400);
     }
@@ -82,7 +84,7 @@ trait ApiResponseTrait
     * @param  string|null $key  parent key (Optional key)
     * @return Illuminate\Http\JsonResponse
     */
-    protected function unauthorized($data, ?string $key = null) : JsonResponse
+    protected function unauthorized($data, ?string $key = null): JsonResponse
     {
         return response()->json($this->body($data, $key), 401);
     }
@@ -95,7 +97,7 @@ trait ApiResponseTrait
      * @param  string|null $key  parent key (Optional key)
      * @return Illuminate\Http\JsonResponse
      */
-    protected function paymentRequired($data, ?string $key = null) : JsonResponse
+    protected function paymentRequired($data, ?string $key = null): JsonResponse
     {
         return response()->json($this->body($data, $key), 402);
     }
@@ -108,7 +110,7 @@ trait ApiResponseTrait
     * @param  string|null $key  parent key (Optional key)
     * @return Illuminate\Http\JsonResponse
     */
-    protected function forbidden($data, ?string $key = null) : JsonResponse
+    protected function forbidden($data, ?string $key = null): JsonResponse
     {
         return response()->json($this->body($data, $key), 403);
     }
@@ -121,7 +123,7 @@ trait ApiResponseTrait
     * @param  string|null $key  parent key (Optional key)
     * @return Illuminate\Http\JsonResponse
     */
-    protected function notFound($data, ?string $key = null) : JsonResponse
+    protected function notFound($data, ?string $key = null): JsonResponse
     {
         return response()->json($this->body($data, $key), 404);
     }
@@ -135,7 +137,7 @@ trait ApiResponseTrait
      * @param  string|null $key  parent key (Optional key)
      * @return Illuminate\Http\JsonResponse
      */
-    protected function invalid($data, ?string $key = null) : JsonResponse
+    protected function invalid($data, ?string $key = null): JsonResponse
     {
         return response()->json($this->body($data, $key), 422);
     }
