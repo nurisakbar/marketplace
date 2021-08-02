@@ -24,6 +24,7 @@ class HarvestController extends Controller
      */
     public function index(Request $request)
     {
+        $this->harvestRepository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
         $harvests = $this->harvestRepository->all();
 
         return HarvestResource::collection($harvests);
