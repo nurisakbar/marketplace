@@ -15,7 +15,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UserSeeder::class);
         $this->call(CategorySeeder::class);
-        $this->call(importWilayahIndonesiaSeeder::class);
         $this->call(HarvestSeeder::class);
+        $this->call(CourierSeeder::class);
+        $this->call(CouerierServiceSeeder::class);
+        $this->call(importWilayahIndonesiaSeeder::class); // kalau error melakukan seeder silahkan import manual
     }
 }
