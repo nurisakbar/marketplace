@@ -2,6 +2,8 @@
 
 namespace App\Entities;
 
+use Database\Factories\HarvestFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
@@ -14,6 +16,7 @@ use Prettus\Repository\Traits\TransformableTrait;
 class Harvest extends Model implements Transformable
 {
     use TransformableTrait;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -21,4 +24,9 @@ class Harvest extends Model implements Transformable
      * @var array
      */
     protected $fillable = ['user_id', 'title', 'description', 'slug', 'category_id', 'image'];
+
+    protected static function newFactory()
+    {
+        return new HarvestFactory();
+    }
 }
