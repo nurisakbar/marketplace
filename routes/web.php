@@ -27,12 +27,12 @@ Route::group(['prefix' => 'auth'], function ($router) {
 });
 
 Route::group(['middleware' => 'api'], function ($router) {
-    // Route Category
     Route::get('/category', 'CategoryController@index');
     Route::get('/category/{id}', 'CategoryController@show');
     Route::put('/category/{id}', 'CategoryController@update');
     Route::delete('/category/{id}', 'CategoryController@destroy');
     Route::post('/category', 'CategoryController@store');
+
 
     // Route Harvest
     Route::get('/harvest', 'HarvestController@index');
@@ -61,4 +61,17 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::post('/users', 'UserController@store');
     Route::put('/users/{id}', 'UserController@update');
 
+});
+
+Route::group(['middleware' => 'api','prefix' => 'api/user'], function ($router) {
+    Route::get('/', 'UserController@index');
+    Route::get('/category', 'CategoryController@index');
+});
+
+Route::group(['middleware' => 'api'], function ($router) {
+    Route::get('/video', 'VideoController@index');
+    Route::get('/video/{id}', 'VideoController@show');
+    Route::put('/video/{id}', 'VideoController@update');
+    Route::delete('/video/{id}', 'VideoController@destroy');
+    Route::post('/video', 'VideoController@store');
 });
