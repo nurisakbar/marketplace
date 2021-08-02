@@ -50,8 +50,9 @@ class VideoController extends Controller
      */
     public function store(CreateVideoRequest $request, VideoService $videoService)
     {
-        $data   = $videoService->create($request);
-        return new VideoResource($this->videoRepository->create($data));
+        $data = $videoService->create($request);
+        $video = $this->videoRepository->create($data);
+        return new VideoResource($video);
     }
 
     /**
@@ -62,7 +63,8 @@ class VideoController extends Controller
      */
     public function show($id)
     {
-        return new VideoResource($this->videoRepository->find($id));
+        $video = $this->videoRepository->find($id);
+        return new VideoResource($video);
     }
 
     /**

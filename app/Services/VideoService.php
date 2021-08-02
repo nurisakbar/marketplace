@@ -11,6 +11,7 @@ class VideoService
     public function create(object $request)
     {
         $data           = $request->all();
+        $data['user_id'] = Auth::user()->id;
         $data['slug']   = Str::slug($request->title, '-');
 
         if ($request->hasFile('file_name')) {
