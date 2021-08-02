@@ -42,8 +42,9 @@ class ForumController extends Controller
      */
     public function store(CreateForumRequest $request, ForumService $forumService)
     {
-        $data = $forumService->create($request);
-        return new ForumResource($this->forumRepository->create($data));
+        $data   = $forumService->create($request);
+        $forum  = $this->forumRepository->create($data);
+        return new ForumResource($forum);
     }
 
     /**
@@ -54,7 +55,8 @@ class ForumController extends Controller
      */
     public function show($id)
     {
-        return new ForumResource($this->forumRepository->find($id));
+        $forum = $this->forumRepository->find($id);
+        return new ForumResource($forum);
     }
 
     /**
@@ -66,8 +68,9 @@ class ForumController extends Controller
      */
     public function update(UpdateForumRequest $request, $id, ForumService $forumService)
     {
-        $data = $forumService->update($request);
-        return new ForumResource($this->forumRepository->update($data, $id));
+        $data   = $forumService->update($request);
+        $forum  = $this->forumRepository->update($data, $id);
+        return new ForumResource($forum);
     }
 
     /**
@@ -78,7 +81,7 @@ class ForumController extends Controller
      */
     public function destroy($id)
     {
-        $data = $this->forumRepository->delete($id);
-        return  $data;
+        $this->forumRepository->delete($id);
+        return response()->json('Data Sudah Terhapus');
     }
 }
