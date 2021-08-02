@@ -9,6 +9,7 @@ use App\Services\ForumService;
 use App\Http\Resources\ForumResource;
 use App\Http\Requests\UpdateForumRequest;
 
+
 class ForumController extends Controller
 {
     protected $forumRepository;
@@ -25,13 +26,13 @@ class ForumController extends Controller
      */
     public function index(Request $request)
     {
+        
         if ($request->has('topic')) {
             $topic = $this->forumRepository->findWhere(['topic' => $request->topic]);
         } else {
             $topic = $this->forumRepository->all();
         }
-
-        return ForumResource::collection($topic);
+        return $this->ok(ForumResource::collection($topic),'Data Category');
     }
 
     /**
@@ -44,7 +45,7 @@ class ForumController extends Controller
     {
         $data   = $forumService->create($request);
         $forum  = $this->forumRepository->create($data);
-        return new ForumResource($forum);
+        return $this->ok(new ForumResource($forum),'Data Sudah Di Tambahkan') ;
     }
 
     /**
@@ -56,7 +57,7 @@ class ForumController extends Controller
     public function show($id)
     {
         $forum = $this->forumRepository->find($id);
-        return new ForumResource($forum);
+        return $this->ok(new ForumResource($forum),'Data Category id '.$id);
     }
 
     /**
@@ -70,7 +71,7 @@ class ForumController extends Controller
     {
         $data   = $forumService->update($request);
         $forum  = $this->forumRepository->update($data, $id);
-        return new ForumResource($forum);
+        return $this->ok(new ForumResource($forum),'Data id '.$id.' Sudah Diupdate');
     }
 
     /**
@@ -82,6 +83,6 @@ class ForumController extends Controller
     public function destroy($id)
     {
         $this->forumRepository->delete($id);
-        return response()->json('Data Sudah Terhapus');
+        return response()->json('Data id '.$id.' Sudah Dihapus');
     }
 }
