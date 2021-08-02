@@ -77,7 +77,8 @@ class VideoController extends Controller
     public function update(UpdateVideoRequest $request, $id, VideoService $videoService)
     {
         $data   = $videoService->update($request);
-        return new VideoResource($this->videoRepository->update($data, $id));
+        $video = $this->videoRepository->update($data, $id);
+        return new VideoResource($video);
     }
 
     /**
