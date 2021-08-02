@@ -14,6 +14,13 @@ class HarvestResource extends JsonResource
      */
     public function toArray($request)
     {
+        if($this->images){
+            $images = collect($this->images)->map(function($image){
+                return url('/harvest_image/' . $image);
+            });
+        }else{
+            $images = [];
+        }
         return [
             'id'            => $this->id,
             'user_id'       => $this->user_id,
@@ -21,7 +28,7 @@ class HarvestResource extends JsonResource
             'description'   => $this->description,
             'slug'          => $this->slug,
             'category_id'   => $this->category_id,
-            'image'        => url('/harvest_image/' . $this->image),
+            'images'        => $images,
         ];
     }
 }

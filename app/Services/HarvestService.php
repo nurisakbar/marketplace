@@ -14,10 +14,19 @@ class HarvestService
         $data['slug']       = Str::slug($request->title, '-');
         $data['user_id']    = Auth::id();
 
-        if ($request->hasFile('image')) {
-            $uploadService = new UploadService();
-            $data['image'] = $uploadService->uploadToPublic($request, 'image', 'harvest_image');
+        $uploadedImages = [];
+        if ($request->has('images')) {
+            foreach ($request->images as $index => $image) {
+                $uploadService = new UploadService();
+                $fileName = $uploadService->uploadToPublic($request, "images.$index", 'harvest_image');
+
+                if($fileName){
+                    $uploadedImages[] = $fileName;
+                }
+            }
         }
+
+        $data['images'] = serialize($uploadedImages);
 
         return $data;
     }

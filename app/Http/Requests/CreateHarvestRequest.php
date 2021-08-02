@@ -27,7 +27,8 @@ class CreateHarvestRequest extends FormRequest
             'title'         =>  'required|min:3|max:150',
             'description'   =>  'required|min:3',
             'category_id'   =>  'required|exists:categories,id',
-            'image'        =>  'nullable|image',
+            'images'        =>  'nullable|array|max:4',
+            'images.*'      =>  'required|image'
         ];
     }
 }
