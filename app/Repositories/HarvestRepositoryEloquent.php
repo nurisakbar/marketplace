@@ -16,6 +16,13 @@ use App\Validators\HarvestValidator;
 class HarvestRepositoryEloquent extends BaseRepository implements HarvestRepository
 {
     /**
+     * @var array
+     */
+    protected $fieldSearchable = [
+        'title' => 'like',
+    ];
+
+    /**
      * Specify Model class name
      *
      * @return string

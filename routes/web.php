@@ -32,8 +32,36 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::put('/category/{id}', 'CategoryController@update');
     Route::delete('/category/{id}', 'CategoryController@destroy');
     Route::post('/category', 'CategoryController@store');
-});
 
+
+    // Route Harvest
+    Route::get('/harvest', 'HarvestController@index');
+    Route::get('/harvest/{id}', 'HarvestController@show');
+    Route::put('/harvest/{id}', 'HarvestController@update');
+    Route::delete('/harvest/{id}', 'HarvestController@destroy');
+    Route::post('/harvest', 'HarvestController@store');
+
+    //User Address
+    Route::get('/user_address', 'UserAddressController@index');
+    Route::get('/user_address/{id}', 'UserAddressController@show');
+    Route::put('/user_address/{id}', 'UserAddressController@update');
+    Route::delete('/user_address/{id}', 'UserAddressController@destroy');
+    Route::post('/user_address', 'UserAddressController@store');
+
+   // Route Article
+    Route::get('/article', 'ArticleController@index');
+    Route::get('/article/{id}', 'ArticleController@show');
+    Route::post('/article/{id}', 'ArticleController@update');
+    Route::delete('/article/{id}', 'ArticleController@destroy');
+    Route::post('/article', 'ArticleController@store');
+   // Route User
+    Route::delete('/users/{id}', 'UserController@destroy');
+    Route::get('/users', 'UserController@index');
+    Route::get('/users/{id}', 'UserController@show');
+    Route::post('/users', 'UserController@store');
+    Route::put('/users/{id}', 'UserController@update');
+
+});
 
 Route::group(['middleware' => 'api','prefix' => 'api/user'], function ($router) {
     Route::get('/', 'UserController@index');
