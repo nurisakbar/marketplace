@@ -13,7 +13,7 @@ class StoreTest extends TestCase
      *
      * @return token
      */
-    private function testGetToken()
+    private function getToken()
     {
         $user = User::first();
         return JWTAuth::fromUser($user);
@@ -37,7 +37,7 @@ class StoreTest extends TestCase
      */
     public function testCallCreateHarvestReturnOk()
     {
-        $token = $this->testGetToken();
+        $token = $this->getToken();
         $response = $this->callApi($token, [
             'title' => 'Testing title',
             'description' => 'Testing description',
@@ -53,7 +53,7 @@ class StoreTest extends TestCase
      */
     public function testCannotCreateHarvestWithoutParams()
     {
-        $token = $this->testGetToken();
+        $token = $this->getToken();
         $response = $this->callApi($token);
         $response->seeStatusCode(422);
     }

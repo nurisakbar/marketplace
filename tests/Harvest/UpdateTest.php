@@ -14,7 +14,7 @@ class UpdateTest extends TestCase
      *
      * @return token
      */
-    private function testGetToken()
+    private function getToken()
     {
         $user = User::first();
         return JWTAuth::fromUser($user);
@@ -38,7 +38,7 @@ class UpdateTest extends TestCase
      */
     public function testUpdateHarvestReturnOk()
     {
-        $token = $this->testGetToken();
+        $token = $this->getToken();
         $harvest = Harvest::first();
         $response = $this->callApi($token, $harvest->id, [
             'title' => 'Testing title',
@@ -55,7 +55,7 @@ class UpdateTest extends TestCase
      */
     public function testCannotUpdateHarvestWithoutParams()
     {
-        $token = $this->testGetToken();
+        $token = $this->getToken();
         $harvest = Harvest::first();
         $response = $this->callApi($token, $harvest->id);
         $response->seeStatusCode(422);
@@ -80,7 +80,7 @@ class UpdateTest extends TestCase
      */
     public function testCannotUpdateDoesntExistHarvest()
     {
-        $token = $this->testGetToken();
+        $token = $this->getToken();
         $response = $this->callApi($token, 0, [
             'title' => 'Testing title',
             'description' => 'Testing description',

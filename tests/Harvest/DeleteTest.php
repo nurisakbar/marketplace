@@ -13,7 +13,7 @@ class DeleteTest extends TestCase
      *
      * @return token
      */
-    private function testGetToken()
+    private function getToken()
     {
         $user = User::first();
         return JWTAuth::fromUser($user);
@@ -37,7 +37,7 @@ class DeleteTest extends TestCase
      */
     public function testDeleteHarvestReturnOk()
     {
-        $token = $this->testGetToken();
+        $token = $this->getToken();
         $harvest = Harvest::first();
         $response = $this->callApi($token, $harvest->id);
         $response->seeStatusCode(200);
@@ -62,7 +62,7 @@ class DeleteTest extends TestCase
      */
     public function testCannotDeleteDoesntExistHarvest()
     {
-        $token = $this->testGetToken();
+        $token = $this->getToken();
         $response = $this->callApi($token, 0);
         $response->seeStatusCode(404);
     }

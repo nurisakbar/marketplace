@@ -7,7 +7,7 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class IndexTest extends TestCase
 {
-    private function testGetToken()
+    private function getToken()
     {
         $user = User::first();
         return JWTAuth::fromUser($user);
@@ -31,7 +31,7 @@ class IndexTest extends TestCase
      */
     public function testCallIndexHarvestReturnOk()
     {
-        $token = $this->testGetToken();
+        $token = $this->getToken();
         $response = $this->callApi($token);
         $response->seeStatusCode(200);
     }
