@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use App\Repositories\UserRepositoryEloquent;
 use App\Http\Resources\UserResource;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -21,7 +23,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return UserResource::collection($this->userRepository->all());
+        $users = $this->userRepository->all();
+        return UserResource::collection($users);
     }
 
     /**
@@ -30,9 +33,10 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        return response()->json(['message' => 'some message']);
+        $user = $this->userRepository->create($request->all());
+        return new UserResource($user);
     }
 
     /**
@@ -43,7 +47,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = $this->userRepository->find($id);
+        return new UserResource($user);
     }
 
     /**
@@ -53,9 +58,15 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
-        //
+        // If user change the password
+        if ($request->filled('password')) {
+            $request['password'] = Hash::make($request->password);
+        }
+
+        $user = $this->userRepository->update($request->all(), $id);
+        return new UserResource($user);
     }
 
     /**
@@ -66,6 +77,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $this->userRepository->delete($id);
     }
 }

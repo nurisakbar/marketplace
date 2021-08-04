@@ -1,4 +1,8 @@
 /vendor
+/public/category_image
+/public/harvest_image
+/public/article_image
+/public/store_logo
 /.idea
 Homestead.json
 Homestead.yaml

@@ -4,24 +4,17 @@ namespace App\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\HarvestRepository;
-use App\Entities\Harvest;
-use App\Validators\HarvestValidator;
+use App\Repositories\ForumRepository;
+use App\Entities\Forum;
+use App\Validators\ForumValidator;
 
 /**
- * Class HarvestRepositoryEloquent.
+ * Class ForumRepositoryEloquent.
  *
  * @package namespace App\Repositories;
  */
-class HarvestRepositoryEloquent extends BaseRepository implements HarvestRepository
+class ForumRepositoryEloquent extends BaseRepository implements ForumRepository
 {
-    /**
-     * @var array
-     */
-    protected $fieldSearchable = [
-        'title' => 'like',
-    ];
-
     /**
      * Specify Model class name
      *
@@ -29,8 +22,10 @@ class HarvestRepositoryEloquent extends BaseRepository implements HarvestReposit
      */
     public function model()
     {
-        return Harvest::class;
+        return Forum::class;
     }
+
+
 
     /**
      * Boot up the repository, pushing criteria
