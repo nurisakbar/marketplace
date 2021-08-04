@@ -12,7 +12,8 @@ untuk melakukan instalasi project ini, silahkan ikuti langkah langkah berikut :
 5. sesuaikan konfigurasi database
 6. php artisan key:generate
 7. php artisan jwt:secret
-8. php artisan serve
+8. php artisan migrate
+9. php artisan serve
 
 ## Migration & Seeder
 untuk menajalankan migrate sekaligus dengan data dummy, silahkan jalankan perintah:<br>

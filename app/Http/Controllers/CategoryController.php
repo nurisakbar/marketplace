@@ -29,7 +29,7 @@ class CategoryController extends Controller
         } else {
             $category = $this->categoryRepository->all();
         }
-        return CategoryResource::collection($category);
+        return $this->ok(CategoryResource::collection($category), 'Data Kategori');
     }
 
     /**
@@ -40,8 +40,10 @@ class CategoryController extends Controller
      */
     public function store(CreateCategoryRequest $request, CategoryService $categoryService)
     {
-        $data   = $categoryService->create($request);
-        return new CategoryResource($this->categoryRepository->create($data));
+        $data               = $categoryService->create($request);
+        $category           = $this->categoryRepository->create($data);
+        $categoryResource   = new CategoryResource($category);
+        return $this->created($categoryResource, 'Berhasil Menambahkan Kategory');
     }
 
     /**
@@ -52,7 +54,9 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        return new CategoryResource($this->categoryRepository->find($id));
+        $category           = $this->categoryRepository->find($id);
+        $categoryResource   = new CategoryResource($category);
+        return $this->ok($categoryResource, 'Detail Category');
     }
 
     /**
@@ -64,8 +68,10 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, $id, CategoryService $categoryService)
     {
-        $data   = $categoryService->update($request);
-        return new CategoryResource($this->categoryRepository->update($data, $id));
+        $data               = $categoryService->update($request);
+        $category           = $this->categoryRepository->update($data, $id);
+        $categoryResource   = new CategoryResource($category);
+        return $this->accepted($categoryResource, 'Berhasil Mengubah Kategory');
     }
 
     /**
@@ -76,6 +82,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        return $this->categoryRepository->delete($id);
+        $this->categoryRepository->delete($id);
     }
 }

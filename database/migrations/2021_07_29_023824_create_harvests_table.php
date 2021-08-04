@@ -22,7 +22,7 @@ class CreateHarvestsTable extends Migration
             $table->text('description');
             $table->string('slug', 100);
             $table->integer('category_id');
-            $table->text('images');
+            $table->text('images')->nullable();
             $table->timestamps();
 		});
 	}
