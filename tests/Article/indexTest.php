@@ -18,7 +18,7 @@ class indexTest extends TestCase
         return $this->get($baseUrl);
     }
 
-    public function testCallIndexArticleReturnOk()
+    public function testIndexArticle()
     {
         $token = $this->getToken();
         $response = $this->callApi($token);
