@@ -2,8 +2,6 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
-use Laravel\Lumen\Routing\Router;
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -35,15 +33,6 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::delete('/category/{id}', 'CategoryController@destroy');
     Route::post('/category', 'CategoryController@store');
 
-    // Module Forum
-    Route::get('/forum','ForumController@index');
-    Route::get('/forum/{id}','ForumController@show');
-    Route::post('/forum','ForumController@store');
-    Route::put('/forum/{id}','ForumController@update');
-    Route::delete('/forum/{id}','ForumController@destroy');
-});
-
-
 
     // Route Harvest
     Route::get('/harvest', 'HarvestController@index');
@@ -71,6 +60,13 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::get('/users/{id}', 'UserController@show');
     Route::post('/users', 'UserController@store');
     Route::put('/users/{id}', 'UserController@update');
+
+    // Route Forum
+    Route::delete('/forum/{id}', 'ForumController@destroy');
+    Route::get('/forum', 'ForumController@index');
+    Route::get('/forum/{id}', 'ForumController@show');
+    Route::post('/forum', 'ForumController@store');
+    Route::put('/forum/{id}', 'ForumController@update');
 
 });
 
