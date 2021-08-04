@@ -61,6 +61,13 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::post('/users', 'UserController@store');
     Route::put('/users/{id}', 'UserController@update');
 
+    // Route Forum
+    Route::delete('/forum/{id}', 'ForumController@destroy');
+    Route::get('/forum', 'ForumController@index');
+    Route::get('/forum/{id}', 'ForumController@show');
+    Route::post('/forum', 'ForumController@store');
+    Route::put('/forum/{id}', 'ForumController@update');
+
 });
 
 Route::group(['middleware' => 'api','prefix' => 'api/user'], function ($router) {
