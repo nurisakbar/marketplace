@@ -17,7 +17,7 @@ before_script:
 
 
 script:
-  - vendor/bin/phpcs
-  - vendor/bin/phpunit
   - mysql -e 'CREATE DATABASE test_api_marketplace;'
   - php artisan migreate:fresh --seed
+  - vendor/bin/phpcs
+  - vendor/bin/phpunit
