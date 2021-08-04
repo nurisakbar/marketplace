@@ -17,7 +17,7 @@ class HarvestFactory extends Factory
         $category = Category::inRandomOrder()->first();
         $user = User::inRandomOrder()->first();
 
-        $title = $this->faker->sentence(rand(3, 5));
+        $title = substr($this->faker->sentence(rand(3, 5)), 0, 45);
         $description = $this->faker->sentence(rand(10,25));
 
     	return [
