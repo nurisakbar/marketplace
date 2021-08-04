@@ -3,6 +3,9 @@ language: php
 php:
   - 7.4
 
+services:
+  - mysql
+
 before_script:
   - travis_retry composer self-update
   - travis_retry composer install --prefer-source --no-interaction
@@ -16,3 +19,5 @@ before_script:
 script:
   - vendor/bin/phpcs
   - vendor/bin/phpunit
+  - mysql -e 'CREATE DATABASE test_api_marketplace;'
+  - php artisan migreate:fresh --seed
