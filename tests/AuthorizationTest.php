@@ -6,6 +6,9 @@ use App\Models\User;
 
 class AuthorizationTest extends TestCase
 {
+    protected $endpointRegister = "auth/register";
+    protected $endpointLogin    = "auth/login";
+    
     /**
      * Test user register Success.
      *
@@ -19,7 +22,7 @@ class AuthorizationTest extends TestCase
             'password'  => 'secret1234'
         ];
 
-        $response = $this->post('auth/register', $data);
+        $response = $this->post($this->endpointRegister, $data);
         $response->seeStatusCode(201);
         $response->seeJsonStructure(['data']);
         User::where('email', 'test@gmail.com')->delete();
@@ -28,7 +31,7 @@ class AuthorizationTest extends TestCase
     public function testRegisterFailedWhenEmailAlready()
     {
         $user       = User::factory()->create();
-        $response   = $this->post('auth/register', $user->toArray());
+        $response   = $this->post($this->endpointRegister, $user->toArray());
         $response->seeStatusCode(422);
         $response->seeJsonStructure(['errors']);
     }
@@ -41,7 +44,7 @@ class AuthorizationTest extends TestCase
             'email'     =>  $user->email,
             'password'  =>  'password'
         ];
-        $response = $this->post('auth/login', $data);
+        $response = $this->post($this->endpointLogin, $data);
         $response->seeStatusCode(200);
         $response->seeJsonStructure(['access_token']);
     }
@@ -51,8 +54,8 @@ class AuthorizationTest extends TestCase
         $data =[
             'email'     =>  'email_not_exist@gmail.com',
             'password'  =>  'password'];
-            
-        $response = $this->post('auth/login', $data);
+
+        $response = $this->post($this->endpointLogin, $data);
         $response->seeStatusCode(401);
         $response->seeJsonStructure(['error']);
     }
