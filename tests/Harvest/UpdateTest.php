@@ -1,10 +1,13 @@
 <?php
 
+namespace Test\Harvest;
+
 use App\Entities\Category;
 use App\Entities\Harvest;
 use App\Models\User;
 use Laravel\Lumen\Testing\DatabaseMigrations;
 use Laravel\Lumen\Testing\DatabaseTransactions;
+use TestCase;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class UpdateTest extends TestCase
