@@ -2,6 +2,7 @@
 
 namespace App\Entities;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
@@ -28,4 +29,36 @@ class Transaction extends Model implements Transformable
         'status',
         'note'
     ];
+
+    public static function statusValues()
+    {
+        return [
+            'create_order',
+            'seller_process_order',
+            'send',
+            'buyer_accept',
+            'complain',
+            'finish'
+        ];
+    }
+
+    public function courierService()
+    {
+        return $this->belongsTo(CourierService::class);
+    }
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
+    }
+
+    public function userAddress()
+    {
+        return $this->belongsTo(UserAddress::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
