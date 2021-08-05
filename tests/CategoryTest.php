@@ -49,7 +49,7 @@ class CategoryTest extends TestCase
     public function testDeleteCategory()
     {
         $category   = Category::factory()->create();
-        $response = $this->actingAs($this->getUser(), 'api')->delete('category/'.$category->id);
+        $response   = $this->actingAs($this->getUser(), 'api')->delete('category/'.$category->id);
         $response->seeStatusCode(200);
     }
 }
