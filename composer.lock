@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "453b977295bb487898ccc7a66ecd64be",
+    "content-hash": "d8c17688126f9aa61c4c05e00f8d6300",
     "packages": [
         {
             "name": "anik/form-request",
@@ -2028,6 +2028,57 @@
             "time": "2021-06-15T17:58:52+00:00"
         },
         {
+            "name": "imdhemy/jsonable",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/imdhemy/jsonable.git",
+                "reference": "1626b2b2ff282207b352527e1e5f75653cc0f416"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/imdhemy/jsonable/zipball/1626b2b2ff282207b352527e1e5f75653cc0f416",
+                "reference": "1626b2b2ff282207b352527e1e5f75653cc0f416",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Imdhemy\\Jsonable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "imdhemy",
+                    "email": "imdhemy@gmail.com"
+                },
+                {
+                    "name": "abdelrahman-waziry",
+                    "email": "abdelrahman.waziry@gmail.com"
+                }
+            ],
+            "description": "Laravel JSON response trait.",
+            "keywords": [
+                "JSON-API",
+                "json",
+                "laravel",
+                "laravel-package",
+                "response"
+            ],
+            "support": {
+                "issues": "https://github.com/imdhemy/jsonable/issues",
+                "source": "https://github.com/imdhemy/jsonable/tree/develop"
+            },
+            "time": "2019-03-15T19:45:27+00:00"
+        },
+        {
             "name": "laravel/lumen-framework",
             "version": "v8.2.4",
             "source": {
@@ -2554,6 +2605,70 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v4.11.0"
             },
             "time": "2021-07-03T13:36:55+00:00"
+        },
+        {
+            "name": "nordsoftware/lumen-cors",
+            "version": "3.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/digiaonline/lumen-cors.git",
+                "reference": "79f3cf9e802e222fa326d483e919363470414d6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/digiaonline/lumen-cors/zipball/79f3cf9e802e222fa326d483e919363470414d6d",
+                "reference": "79f3cf9e802e222fa326d483e919363470414d6d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.4 || ^6.0 || ^7.0 || ^8.0",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "codeception/assert-throws": "^1.1",
+                "codeception/codeception": "^4.1",
+                "codeception/module-asserts": "^1.3",
+                "codeception/specify": "^1.2",
+                "codeception/verify": "^1.2",
+                "laravel/lumen-framework": "^5.4 || ^6.0 || ^7.0 || ^8.0",
+                "php-coveralls/php-coveralls": "^2.2",
+                "phpstan/phpstan": "^0.12.2",
+                "phpstan/phpstan-symfony": "^0.12.11"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nord\\Lumen\\Cors\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christoffer Niska",
+                    "email": "christofferniska@gmail.com"
+                }
+            ],
+            "description": "CORS module for the Lumen PHP framework.",
+            "keywords": [
+                "cors",
+                "cross-origin",
+                "headers",
+                "http",
+                "laravel",
+                "lumen",
+                "preflight",
+                "request",
+                "resource",
+                "sharing"
+            ],
+            "support": {
+                "issues": "https://github.com/digiaonline/lumen-cors/issues",
+                "source": "https://github.com/digiaonline/lumen-cors/tree/3.4.0"
+            },
+            "time": "2021-02-08T10:39:40+00:00"
         },
         {
             "name": "opis/closure",

@@ -4,24 +4,17 @@ namespace App\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\HarvestRepository;
-use App\Entities\Harvest;
-use App\Validators\HarvestValidator;
+use App\Repositories\VideoRepository;
+use App\Entities\Video;
+use App\Validators\VideoValidator;
 
 /**
- * Class HarvestRepositoryEloquent.
+ * Class VideoRepositoryEloquent.
  *
  * @package namespace App\Repositories;
  */
-class HarvestRepositoryEloquent extends BaseRepository implements HarvestRepository
+class VideoRepositoryEloquent extends BaseRepository implements VideoRepository
 {
-    /**
-     * @var array
-     */
-    protected $fieldSearchable = [
-        'title' => 'like',
-    ];
-
     /**
      * Specify Model class name
      *
@@ -29,7 +22,7 @@ class HarvestRepositoryEloquent extends BaseRepository implements HarvestReposit
      */
     public function model()
     {
-        return Harvest::class;
+        return Video::class;
     }
 
     /**
