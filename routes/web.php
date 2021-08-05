@@ -51,7 +51,7 @@ Route::group(['middleware' => 'api'], function ($router) {
    // Route Article
     Route::get('/article', 'ArticleController@index');
     Route::get('/article/{id}', 'ArticleController@show');
-    Route::post('/article/{id}', 'ArticleController@update');
+    Route::put('/article/{id}', 'ArticleController@update');
     Route::delete('/article/{id}', 'ArticleController@destroy');
     Route::post('/article', 'ArticleController@store');
    // Route User
