@@ -3,6 +3,8 @@
 namespace App\Entities;
 
 use App\Models\User;
+use Database\Factories\TransactionFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
@@ -14,7 +16,7 @@ use Prettus\Repository\Traits\TransformableTrait;
  */
 class Transaction extends Model implements Transformable
 {
-    use TransformableTrait;
+    use HasFactory, TransformableTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -29,6 +31,11 @@ class Transaction extends Model implements Transformable
         'status',
         'note'
     ];
+
+    protected static function newFactory()
+    {
+        return new TransactionFactory();
+    }
 
     public static function statusValues()
     {
@@ -60,5 +67,10 @@ class Transaction extends Model implements Transformable
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function setUserIdAttribute()
+    {
+        $this->attributes['user_id'] = auth()->user()->id ?? 1;
     }
 }

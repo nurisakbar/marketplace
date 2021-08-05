@@ -17,8 +17,7 @@ class TransactionResource extends JsonResource
         return [
             'id' => $this->id,
             'user' => new UserResource($this->user),
-            // 'store' => new StoreResource($this->store),
-            'store_id' => $this->store_id,
+            'store' => new StoreResource($this->store),
             'courier_service' => new CourierServiceResource($this->courierService),
             'user_address' => new UserAddressResource($this->userAddress),
             'status' => $this->status,
