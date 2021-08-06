@@ -39,8 +39,6 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::delete('/article/{id}', 'ArticleController@destroy');
     Route::post('/article', 'ArticleController@store');
 
-
-
     Route::get('/user_address', 'UserAddressController@index');
     Route::get('/user_address/{id}', 'UserAddressController@show');
     Route::put('/user_address/{id}', 'UserAddressController@update');
@@ -52,6 +50,14 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::put('/stores/{id}', 'StoreController@update');
     Route::delete('/stores/{id}', 'StoreController@destroy');
     Route::post('/stores', 'StoreController@create');
+
+    Route::get('/forum', 'ForumController@index');
+    Route::get('/forum/{id}', 'ForumController@show');
+    Route::put('/forum/{id}', 'ForumController@update');
+    Route::delete('/forum/{id}', 'ForumController@destroy');
+    Route::post('/forum', 'ForumController@store');
+
+
 });
 
 
