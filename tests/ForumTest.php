@@ -3,7 +3,6 @@
 use Laravel\Lumen\Testing\DatabaseMigrations;
 use Laravel\Lumen\Testing\DatabaseTransactions;
 use Tymon\JWTAuth\Facades\JWTAuth;
-use App\Models\User;
 use App\Entities\Forum;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
@@ -20,11 +19,12 @@ class ForumTest extends TestCase
 
     public function testCreateForum()
     {
+        $file = UploadedFile::fake()->image('avatar.jpg');
         $data =[
             'topic'             =>    'Forum Test',
             'description'       =>    'Description Test',
             'category_id'       =>    '2',
-            'images'            =>    'avatar.jpg'
+            'images'            =>    $file
         ];
         $response = $this->actingAs($this->getUser(), 'api')->post($this->endPointForum, $data);
         $response->seeStatusCode(201);
@@ -32,12 +32,13 @@ class ForumTest extends TestCase
 
     public function testUpdateForum()
     {
+        $file = UploadedFile::fake()->image('avatar.jpg');
         $forum = Forum::factory()->create();
         $data =[
             'topic'             =>    'Topic Test',
             'description'       =>    'Test Description',
             'category_id'       =>    '1',
-            'images'            =>    'avatar.jpg'
+            'images'            =>    $file
         ];
         $response = $this->actingAs($this->getUser(), 'api')->put($this->endPointForum.'/'.$forum->id,$data);
         $response->seeStatusCode(202);
