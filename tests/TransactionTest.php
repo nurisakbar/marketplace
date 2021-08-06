@@ -29,11 +29,6 @@ class TransactionTest extends TestCase
         return Transaction::get('id')->random()->id;
     }
 
-    protected function getUser()
-    {
-        return User::factory()->create();
-    }
-
     protected function logAsUser()
     {
         return $this->actingAs($this->getUser(), $this->driver);
