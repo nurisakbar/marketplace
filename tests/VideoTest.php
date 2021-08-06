@@ -20,10 +20,9 @@ class VideoTest extends TestCase
     public function testCreateVideo()
     {
         $category   = Category::factory()->create();
-
-        $file = UploadedFile::fake()->create('file.mp4',1024);
+        $file = UploadedFile::fake()->create('file.mp4',1024, "video/mp4");
         $data = [
-            'title' => 'Testing title',
+            'title' => 'Testing title video',
             'description' => 'Testing description',
             'category_id' => $category->id,
             'file_name' => $file,
@@ -36,7 +35,7 @@ class VideoTest extends TestCase
     {
         $category   = Category::factory()->create();
         $video    = Video::factory()->create();
-        $file = UploadedFile::fake()->create('file.mp4',1024);
+        $file = UploadedFile::fake()->create('file.mp4',1024, "video/mp4");
 
         $data = [
             'title' => 'Testing title',
