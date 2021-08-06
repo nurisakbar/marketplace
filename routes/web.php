@@ -19,11 +19,11 @@ $router->get('/', function () use ($router) {
 
 
 Route::group(['prefix' => 'auth'], function ($router) {
-    Route::post('register', 'AuthController@register');
-    Route::post('login', 'AuthController@login');
-    Route::post('logout', 'AuthController@logout');
-    Route::post('refresh', 'AuthController@refresh');
-    Route::post('me', 'AuthController@me');
+    Route::post('/register', 'AuthController@register');
+    Route::post('/login', 'AuthController@login');
+    Route::post('/logout', 'AuthController@logout');
+    Route::post('/refresh', 'AuthController@refresh');
+    Route::post('/me', 'AuthController@me');
 });
 
 Route::group(['middleware' => 'api'], function ($router) {
@@ -33,15 +33,18 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::delete('/category/{id}', 'CategoryController@destroy');
     Route::post('/category', 'CategoryController@store');
 
+    Route::get('/article', 'ArticleController@index');
+    Route::get('/article/{id}', 'ArticleController@show');
+    Route::put('/article/{id}', 'ArticleController@update');
+    Route::delete('/article/{id}', 'ArticleController@destroy');
+    Route::post('/article', 'ArticleController@store');
 
-    // Route Harvest
     Route::get('/harvest', 'HarvestController@index');
     Route::get('/harvest/{id}', 'HarvestController@show');
     Route::put('/harvest/{id}', 'HarvestController@update');
     Route::delete('/harvest/{id}', 'HarvestController@destroy');
     Route::post('/harvest', 'HarvestController@store');
 
-    //User Address
     Route::get('/user_address', 'UserAddressController@index');
     Route::get('/user_address/{id}', 'UserAddressController@show');
     Route::put('/user_address/{id}', 'UserAddressController@update');
@@ -75,9 +78,15 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::post('/forum', 'ForumController@store');
     Route::put('/forum/{id}', 'ForumController@update');
 
+    Route::get('/stores', 'StoreController@index');
+    Route::get('/stores/{id}', 'StoreController@show');
+    Route::put('/stores/{id}', 'StoreController@update');
+    Route::delete('/stores/{id}', 'StoreController@destroy');
+    Route::post('/stores', 'StoreController@create');
 });
 
-Route::group(['middleware' => 'api','prefix' => 'api/user'], function ($router) {
+
+Route::group(['middleware' => 'api', 'prefix' => 'api/user'], function ($router) {
     Route::get('/', 'UserController@index');
     Route::get('/category', 'CategoryController@index');
 });

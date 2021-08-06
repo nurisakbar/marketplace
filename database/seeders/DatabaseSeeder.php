@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CourierSeeder::class);
         $this->call(CouerierServiceSeeder::class);
         $this->call(importWilayahIndonesiaSeeder::class); // kalau error melakukan seeder silahkan import manual
+        $this->call(VideoSeeder::class);
     }
 }

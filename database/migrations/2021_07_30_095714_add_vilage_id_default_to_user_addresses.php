@@ -14,7 +14,7 @@ class AddVilageIdDefaultToUserAddresses extends Migration
     public function up()
     {
         Schema::table('user_addresses', function (Blueprint $table) {
-            $table->integer('vilage_id');
+            $table->string('village_id');
             $table->enum('default', ['y', 'n']);
         });
     }
