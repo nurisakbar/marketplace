@@ -39,13 +39,11 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::delete('/article/{id}', 'ArticleController@destroy');
     Route::post('/article', 'ArticleController@store');
 
-
     Route::get('/harvest', 'HarvestController@index');
     Route::get('/harvest/{id}', 'HarvestController@show');
     Route::put('/harvest/{id}', 'HarvestController@update');
     Route::delete('/harvest/{id}', 'HarvestController@destroy');
     Route::post('/harvest', 'HarvestController@store');
-
 
     Route::get('/user_address', 'UserAddressController@index');
     Route::get('/user_address/{id}', 'UserAddressController@show');
@@ -53,12 +51,13 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::delete('/user_address/{id}', 'UserAddressController@destroy');
     Route::post('/user_address', 'UserAddressController@store');
 
-   // Route Article
+    // Route Article
     Route::get('/article', 'ArticleController@index');
     Route::get('/article/{id}', 'ArticleController@show');
     Route::put('/article/{id}', 'ArticleController@update');
     Route::delete('/article/{id}', 'ArticleController@destroy');
     Route::post('/article', 'ArticleController@store');
+    
     // Route User
     Route::delete('/users/{id}', 'UserController@destroy');
     Route::get('/users', 'UserController@index');
@@ -86,31 +85,14 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::delete('/stores/{id}', 'StoreController@destroy');
     Route::post('/stores', 'StoreController@create');
 
-//     Route::get('/video', 'VideoController@index');
-//     Route::get('/video/{id}', 'VideoController@show');
-//     Route::put('/video/{id}', 'VideoController@update');
-//     Route::delete('/video/{id}', 'VideoController@destroy');
-//     Route::post('/video', 'VideoController@store');
-
-//     Route::get('/forum', 'ForumController@index');
-//     Route::get('/forum/{id}', 'ForumController@show');
-//     Route::put('/forum/{id}', 'ForumController@update');
-//     Route::delete('/forum/{id}', 'ForumController@destroy');
-//     Route::post('/forum', 'ForumController@store');
-
-
-});
-
-
-Route::group(['middleware' => 'api', 'prefix' => 'api/user'], function ($router) {
-    Route::get('/', 'UserController@index');
-    Route::get('/category', 'CategoryController@index');
-});
-
-Route::group(['middleware' => 'api'], function ($router) {
     Route::get('/video', 'VideoController@index');
     Route::get('/video/{id}', 'VideoController@show');
     Route::put('/video/{id}', 'VideoController@update');
     Route::delete('/video/{id}', 'VideoController@destroy');
     Route::post('/video', 'VideoController@store');
+});
+
+
+Route::group(['middleware' => 'api', 'prefix' => 'api/user'], function ($router) {
+    Route::get('/', 'UserController@index');
 });
