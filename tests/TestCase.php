@@ -1,17 +1,22 @@
 <?php
-namespace tests;
 
-use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Faker\Factory;
+use Laravel\Lumen\Testing\TestCase as BaseTestCase;
+use App\Models\User;
 
 abstract class TestCase extends BaseTestCase
 {
-    use CreatesApplication, DatabaseMigrations;
-    protected $faker;
+    /**
+     * Creates the application.
+     *
+     * @return \Laravel\Lumen\Application
+     */
+    public function createApplication()
+    {
+        return require __DIR__.'/../bootstrap/app.php';
+    }
 
-    public function setUp(): void{
-      parent::setUp();
-      $this->faker = Factory::create();
+    protected function getUser()
+    {
+        return User::factory()->create();
     }
 }
