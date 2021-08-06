@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\LoginRequest;
 use App\Repositories\UserRepositoryEloquent;
 use App\Http\Resources\UserResource;
-use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
