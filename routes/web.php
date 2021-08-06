@@ -51,6 +51,33 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::delete('/user_address/{id}', 'UserAddressController@destroy');
     Route::post('/user_address', 'UserAddressController@store');
 
+   // Route Article
+    Route::get('/article', 'ArticleController@index');
+    Route::get('/article/{id}', 'ArticleController@show');
+    Route::put('/article/{id}', 'ArticleController@update');
+    Route::delete('/article/{id}', 'ArticleController@destroy');
+    Route::post('/article', 'ArticleController@store');
+    // Route User
+    Route::delete('/users/{id}', 'UserController@destroy');
+    Route::get('/users', 'UserController@index');
+    Route::get('/users/{id}', 'UserController@show');
+    Route::post('/users', 'UserController@store');
+    Route::put('/users/{id}', 'UserController@update');
+
+    // Route Transaction
+    Route::delete('/transactions/{id}', 'TransactionController@destroy');
+    Route::get('/transactions', 'TransactionController@index');
+    Route::get('/transactions/{id}', 'TransactionController@show');
+    Route::post('/transactions', 'TransactionController@store');
+    Route::put('/transactions/{id}', 'TransactionController@update');
+    
+    // Route Forum
+    Route::delete('/forum/{id}', 'ForumController@destroy');
+    Route::get('/forum', 'ForumController@index');
+    Route::get('/forum/{id}', 'ForumController@show');
+    Route::post('/forum', 'ForumController@store');
+    Route::put('/forum/{id}', 'ForumController@update');
+
     Route::get('/stores', 'StoreController@index');
     Route::get('/stores/{id}', 'StoreController@show');
     Route::put('/stores/{id}', 'StoreController@update');
@@ -62,4 +89,12 @@ Route::group(['middleware' => 'api'], function ($router) {
 Route::group(['middleware' => 'api', 'prefix' => 'api/user'], function ($router) {
     Route::get('/', 'UserController@index');
     Route::get('/category', 'CategoryController@index');
+});
+
+Route::group(['middleware' => 'api'], function ($router) {
+    Route::get('/video', 'VideoController@index');
+    Route::get('/video/{id}', 'VideoController@show');
+    Route::put('/video/{id}', 'VideoController@update');
+    Route::delete('/video/{id}', 'VideoController@destroy');
+    Route::post('/video', 'VideoController@store');
 });
