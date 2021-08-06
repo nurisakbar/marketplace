@@ -33,6 +33,13 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::delete('/category/{id}', 'CategoryController@destroy');
     Route::post('/category', 'CategoryController@store');
 
+    Route::get('/article', 'ArticleController@index');
+    Route::get('/article/{id}', 'ArticleController@show');
+    Route::put('/article/{id}', 'ArticleController@update');
+    Route::delete('/article/{id}', 'ArticleController@destroy');
+    Route::post('/article', 'ArticleController@store');
+
+
 
     Route::get('/user_address', 'UserAddressController@index');
     Route::get('/user_address/{id}', 'UserAddressController@show');
