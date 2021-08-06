@@ -39,7 +39,11 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::delete('/article/{id}', 'ArticleController@destroy');
     Route::post('/article', 'ArticleController@store');
 
-
+    Route::get('/harvest', 'HarvestController@index');
+    Route::get('/harvest/{id}', 'HarvestController@show');
+    Route::put('/harvest/{id}', 'HarvestController@update');
+    Route::delete('/harvest/{id}', 'HarvestController@destroy');
+    Route::post('/harvest', 'HarvestController@store');
 
     Route::get('/user_address', 'UserAddressController@index');
     Route::get('/user_address/{id}', 'UserAddressController@show');
