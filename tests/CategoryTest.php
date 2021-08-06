@@ -10,17 +10,11 @@ class CategoryTest extends TestCase
 {
     protected $endpointCategory ="category";
 
-    protected function getUser()
-    {
-        return User::factory()->create();
-    }
-
     public function testGetAllCategory()
     {
         $response   = $this->actingAs($this->getUser(), 'api')->get($this->endpointCategory);
         $response->seeStatusCode(200);
     }
-
 
     public function testCreateCategory()
     {
