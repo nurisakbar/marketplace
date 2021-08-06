@@ -52,6 +52,13 @@ Route::group(['middleware' => 'api'], function ($router) {
     Route::put('/stores/{id}', 'StoreController@update');
     Route::delete('/stores/{id}', 'StoreController@destroy');
     Route::post('/stores', 'StoreController@create');
+
+    Route::get('/video', 'VideoController@index');
+    Route::get('/video/{id}', 'VideoController@show');
+    Route::put('/video/{id}', 'VideoController@update');
+    Route::delete('/video/{id}', 'VideoController@destroy');
+    Route::post('/video', 'VideoController@store');
+
 });
 
 
