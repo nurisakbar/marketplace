@@ -25,7 +25,6 @@ class ForumController extends Controller
      */
     public function index(Request $request)
     {
-
         if ($request->has('topic')) {
             $topic = $this->forumRepository->findWhere(['topic' => $request->topic]);
         } else {
@@ -44,7 +43,7 @@ class ForumController extends Controller
     {
         $data   = $forumService->create($request);
         $forum  = $this->forumRepository->create($data);
-        return $this->ok(new ForumResource($forum), 'Data Sudah Di Tambahkan') ;
+        return $this->created(new ForumResource($forum), 'Data Sudah Di Tambahkan') ;
     }
 
     /**
@@ -70,7 +69,7 @@ class ForumController extends Controller
     {
         $data   = $forumService->update($request);
         $forum  = $this->forumRepository->update($data, $id);
-        return $this->ok(new ForumResource($forum), 'Data id ' . $id . ' Sudah Diupdate');
+        return $this->accepted(new ForumResource($forum), 'Data id ' . $id . ' Sudah Diupdate');
     }
 
     /**
