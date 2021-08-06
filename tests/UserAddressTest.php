@@ -20,7 +20,7 @@ class UserAddressTest extends TestCase
         $data = [
             'lebel'      => 'test lebel',
             'address'    => 'test address',
-            'phone'      => 'test phone',
+            'phone'      => '081621600',
             'name'       => 'test name',
             'village_id' => '1101012001',
             'default'    => 'y'
@@ -35,13 +35,13 @@ class UserAddressTest extends TestCase
         $data = [
             'lebel'      => 'test lebel update',
             'address'    => 'test address update',
-            'phone'      => 'test phone update',
+            'phone'      => '081621600',
             'name'       => 'test name update',
             'village_id' => '1101022006',
             'default'    => 'n'
         ];
         $response = $this->actingAs($this->getUser(), 'api')->put($this->endpointUserAddress . '/' . $userAddress->id, $data);
-        $response->seeStatusCode(202);
+        $response->seeStatusCode(200);
     }
 
 
