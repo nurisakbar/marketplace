@@ -8,7 +8,7 @@ use Laravel\Lumen\Testing\DatabaseTransactions;
 class TransactionTest extends TestCase
 {
     protected $driver = 'api';
-    protected $endPoint = 'transactions';
+    protected $endPointTransaction = 'transactions';
     protected $resourceStructure = [
         'id',
         'user',
@@ -43,7 +43,7 @@ class TransactionTest extends TestCase
     {
         $data = $this->generateFakeData();
 
-        $response = $this->logAsUser()->post($this->endPoint, $data);
+        $response = $this->logAsUser()->post($this->endPointTransaction, $data);
         $response->seeStatusCode(201)
             ->seeJsonStructure([
                 'data' => $this->resourceStructure
@@ -55,7 +55,7 @@ class TransactionTest extends TestCase
         $data = $this->generateFakeData();
         $randomId = $this->getRandomId();
 
-        $response = $this->logAsUser()->put("$this->endPoint/$randomId", $data);
+        $response = $this->logAsUser()->put($this->endPointTransaction . '/' . $randomId, $data);
         $response->seeStatusCode(200)
             ->seeJsonStructure([
                 'data' => $this->resourceStructure
@@ -64,7 +64,7 @@ class TransactionTest extends TestCase
 
     public function testGetTransactions()
     {
-        $response = $this->logAsUser()->get($this->endPoint);
+        $response = $this->logAsUser()->get($this->endPointTransaction);
         $response->seeStatusCode(200)
             ->seeJsonStructure([
                 'data' => [
@@ -77,7 +77,7 @@ class TransactionTest extends TestCase
     {
         $randomId = $this->getRandomId();
 
-        $response = $this->logAsUser()->get("$this->endPoint/$randomId");
+        $response = $this->logAsUser()->get($this->endPointTransaction . '/' . $randomId);
         $response->seeStatusCode(200)
             ->seeJsonStructure([
                 'data' => $this->resourceStructure
@@ -88,7 +88,7 @@ class TransactionTest extends TestCase
     {
         $randomId = $this->getRandomId();
 
-        $response = $this->logAsUser()->delete("$this->endPoint/$randomId");
+        $response = $this->logAsUser()->delete($this->endPointTransaction . '/' . $randomId);
         $response->seeStatusCode(200);
     }
 }

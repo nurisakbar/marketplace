@@ -26,9 +26,6 @@ class TransactionRequest extends FormRequest
     protected function rules(): array
     {
         $rules = [
-            // 'store_id' => 'required|exists:stores',
-            // 'courier_service_id' => 'required|exists:courier_services,id',
-            // 'user_address_id' => 'required|exists:user_addresses,id'
             'store_id' => 'required',
             'courier_service_id' => 'required',
             'user_address_id' => 'required'
